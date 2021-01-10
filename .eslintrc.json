@@ -32,6 +32,7 @@
         "import/prefer-default-export": "off",
         "camelcase": "off",
         "@typescript-eslint/ban-types": "off",
+        "no-unused-expressions": "off",
         "no-use-before-define": "off",
         "prettier/prettier": "error",
         "react/jsx-one-expression-per-line": "off",
