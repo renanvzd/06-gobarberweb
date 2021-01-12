@@ -45,6 +45,7 @@ const SignIn: React.FC = () => {
           password: data.password,
         });
       } catch (err) {
+        // incluido nessa aula
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
 
