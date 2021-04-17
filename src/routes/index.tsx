@@ -5,7 +5,6 @@ import Route from './Route';
 
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
-
 import ForgotPassword from '../pages/ForgotPassword';
 import ResetPassword from '../pages/ResetPassword';
 
