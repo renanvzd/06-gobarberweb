@@ -4,7 +4,7 @@ import api from '../services/api';
 
 interface AuthState {
   token: string;
-  userWithoutPassword: object;
+  user: object;
 }
 
 interface SignInCredentials {
@@ -13,7 +13,7 @@ interface SignInCredentials {
 }
 
 interface AuthContextData {
-  userWithoutPassword: object;
+  user: object;
   signIn(credentials: SignInCredentials): Promise<void>;
   signOut(): void;
 }
@@ -23,12 +23,10 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 const AuthProvider: React.FC = ({ children }) => {
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem('@GoBarber:token');
-    const userWithoutPassword = localStorage.getItem(
-      '@GoBarber:userWithoutPassword',
-    );
+    const user = localStorage.getItem('@GoBarber:user');
 
-    if (token && userWithoutPassword) {
-      return { token, userWithoutPassword: JSON.parse(userWithoutPassword) };
+    if (token && user) {
+      return { token, user: JSON.parse(user) };
     }
 
     return {} as AuthState;
@@ -40,28 +38,23 @@ const AuthProvider: React.FC = ({ children }) => {
       password,
     });
 
-    const { token, userWithoutPassword } = response.data;
+    const { token, user } = response.data;
 
     localStorage.setItem('@GoBarber:token', token);
-    localStorage.setItem(
-      '@GoBarber:userWithoutPassword',
-      JSON.stringify(userWithoutPassword),
-    );
+    localStorage.setItem('@GoBarber:user', JSON.stringify(user));
 
-    setData({ token, userWithoutPassword });
+    setData({ token, user });
   }, []);
 
   const signOut = useCallback(() => {
     localStorage.removeItem('@GoBarber:token');
-    localStorage.removeItem('@GoBarber:userWithoutPassword');
+    localStorage.removeItem('@GoBarber:user');
 
     setData({} as AuthState);
   }, []);
 
   return (
-    <AuthContext.Provider
-      value={{ userWithoutPassword: data.userWithoutPassword, signIn, signOut }}
-    >
+    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );
