@@ -8,6 +8,8 @@ import {
   Content,
   Schedule,
   NextAppointment,
+  Section,
+  Appointment,
   Calendar,
 } from './styles';
 import logoImg from '../../assets/logo.svg';
@@ -61,8 +63,59 @@ const Dashboard: React.FC = () => {
               </span>
             </div>
           </NextAppointment>
-        </Schedule>
 
+          <Section>
+            <strong>Manhã</strong>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img
+                  src="https://avatars.githubusercontent.com/u/63881782?v=4"
+                  alt="Renan Veronez"
+                />
+                <strong>Nome do usuário</strong>
+              </div>
+            </Appointment>
+
+            <Appointment>
+              <span>
+                <FiClock />
+                08:00
+              </span>
+
+              <div>
+                <img
+                  src="https://avatars.githubusercontent.com/u/63881782?v=4"
+                  alt="Renan Veronez"
+                />
+                <strong>Nome do usuário</strong>
+              </div>
+            </Appointment>
+          </Section>
+
+          <Section>
+            <strong>Tarde</strong>
+            <Appointment>
+              <span>
+                <FiClock />
+                16:00
+              </span>
+
+              <div>
+                <img
+                  src="https://avatars.githubusercontent.com/u/63881782?v=4"
+                  alt="Renan Veronez"
+                />
+                <strong>Nome do usuário</strong>
+              </div>
+            </Appointment>
+          </Section>
+        </Schedule>
         <Calendar />
       </Content>
     </Container>
