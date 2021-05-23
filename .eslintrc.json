@@ -38,6 +38,7 @@
         "prettier/prettier": "error",
         "react/jsx-one-expression-per-line": "off",
         "react/jsx-props-no-spreading": "off",
+        "import/no-duplicates": "off",
         "import/extensions": [
             "error",
             "ignorePackages",
