@@ -25,6 +25,15 @@ interface MonthAvailabilityItem {
   available: boolean;
 }
 
+interface Appointments {
+  id: string;
+  date: string;
+  user: {
+    name: string;
+    avatar_url: string;
+  };
+}
+
 const Dashboard: React.FC = () => {
   const { user, signOut } = useAuth();
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -33,6 +42,8 @@ const Dashboard: React.FC = () => {
   const [monthAvailability, setMonthAvailability] = useState<
     MonthAvailabilityItem[]
   >([]);
+
+  const [appointments, setAppointments] = useState<Appointments[]>([]);
 
   const handleDateChange = useCallback((day: Date, modifiers: DayModifiers) => {
     if (modifiers.available) {
@@ -56,6 +67,21 @@ const Dashboard: React.FC = () => {
         setMonthAvailability(response.data);
       });
   }, [currentMonth, user.id]);
+
+  useEffect(() => {
+    api
+      .get('/appointments/me', {
+        params: {
+          year: selectedDate.getFullYear(),
+          month: selectedDate.getMonth() + 1,
+          day: selectedDate.getDate(),
+        },
+      })
+      .then(response => {
+        setAppointments(response.data);
+        console.log(response.data);
+      });
+  }, [selectedDate]);
 
   const disableDays = useMemo(() => {
     const dates = monthAvailability
