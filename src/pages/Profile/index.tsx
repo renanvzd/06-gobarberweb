@@ -19,7 +19,13 @@ import { Container, Content, AvatarInput } from './styles';
 interface ProfileFormData {
   name: string;
   email: string;
+  old_password: string;
   password: string;
+  password_confirmation: string;
+}
+
+interface YupValProps {
+  length: number;
 }
 
 const Profile: React.FC = () => {
@@ -39,14 +45,26 @@ const Profile: React.FC = () => {
           email: Yup.string()
             .required('E-mail obrigatório')
             .email('Digite um e-mail válido'),
-          password: Yup.string().min(6, 'Mínimo 6 caracteres'),
+          old_password: Yup.string(),
+          password: Yup.string().when('old_password', {
+            is: (val: YupValProps) => !!val.length,
+            then: Yup.string().required('Campo obrigatório'),
+            otherwise: Yup.string(),
+          }),
+          password_confirmation: Yup.string()
+            .when('old_password', {
+              is: (val: YupValProps) => !!val.length,
+              then: Yup.string().required('Campo obrigatório'),
+              otherwise: Yup.string(),
+            })
+            .oneOf([Yup.ref('password'), null], 'Confirmação incorreta'),
         });
 
         await schema.validate(data, {
           abortEarly: false,
         });
 
-        await api.post('/users', data);
+        // await api.post('/users', data);
 
         history.push('/', data);
 
