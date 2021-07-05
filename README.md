@@ -27,7 +27,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
 
 <p>* Necessário rodar o node server para conectar ao redis, MongoDB e Postgres.
-O projeto Node server pode ser clonado [aqui](https://github.com/renanvzd/goBarber).</p>
+O projeto Node server pode ser clonado.</p>[aqui](https://github.com/renanvzd/goBarber)
 
 ## 💻 Projeto
 
