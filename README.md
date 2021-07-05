@@ -26,8 +26,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
 
-* Necessário rodar o node server para conectar ao redis, MongoDB e Postgres.
-O projeto Node server pode ser clonado [aqui](https://github.com/renanvzd/goBarber)
+<p>* Necessário rodar o node server para conectar ao redis, MongoDB e Postgres.
+O projeto Node server pode ser clonado [aqui](https://github.com/renanvzd/goBarber).</p>
 
 ## 💻 Projeto
 
@@ -38,9 +38,6 @@ O GoBarber é uma aplicação para organizar os agendamentos dos prestadores de 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/YtcM9ICvZHaPrXbF0L7ggJ/GoBarber-(Copy)?node-id=34%3A1180).
 É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
 
-## 📝 License
-
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 ---
 
