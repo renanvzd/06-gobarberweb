@@ -44,4 +44,4 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 ---
 
-Copyright: [Rocketseat](https://github.com/rocketseat-education/nlw-05-reactjs/)
+Copyright: [Rocketseat Bootcamp](https://github.com/rocketseat-education/bootcamp-gostack-apps/tree/master/06-gobarber-web)
